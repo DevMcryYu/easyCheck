@@ -91,4 +91,6 @@ public interface VertexInterface<T> {
     public void setCost(double newCost);//设置到该顶点路径的费用
 
     public double getCost();//提取到该顶点路径的费用
+    public double getWeight(VertexInterface<T> endVertex);
+    public void setWeight(VertexInterface<T> endVertex, double weight);
 }

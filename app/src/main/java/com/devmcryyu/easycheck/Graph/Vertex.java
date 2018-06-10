@@ -48,6 +48,10 @@ public class Vertex<T> implements VertexInterface<T>, Serializable {
         protected double getWeight() {
             return weight;
         }
+
+        protected void setWeight(double weight) {
+            this.weight = weight;
+        }
     }
 
     /**
@@ -102,18 +106,47 @@ public class Vertex<T> implements VertexInterface<T>, Serializable {
         }
 
         @Override
-        public Object next() {
-            Double result;
+        public Edge next() {
+            Edge edge;
+            double result;
             if (edgesIterator.hasNext()) {
-                Edge edge = edgesIterator.next();
-                result = edge.getWeight();
+                edge = edgesIterator.next();
+//                result = edge.getWeight();
             } else throw new NoSuchElementException();
-            return result;                                                                          //从迭代器中取得结果时,需要强制转换成Double
+//            return result;                                                                          //从迭代器中取得结果时,需要强制转换成Double
+            return edge;
         }
 
         @Override
         public void remove() {
             throw new UnsupportedOperationException();
+        }
+    }
+
+    @Override
+    public double getWeight(VertexInterface<T> endVertex) {
+        Edge nextNeighbor = null;
+        WeightIterator iterator = new WeightIterator();
+        while (iterator.hasNext()) {
+            nextNeighbor = iterator.next();
+            if (endVertex.equals(nextNeighbor.getEndVertex()))
+                break;
+        }
+        return nextNeighbor.weight;
+    }
+
+    @Override
+    public void setWeight(VertexInterface<T> endVertex, double weight) {
+        Edge nextNeighbor = null;
+        WeightIterator iterator = new WeightIterator();
+        if (weight > 0) {
+            while (iterator.hasNext()) {
+                nextNeighbor = iterator.next();
+                if (endVertex.equals(nextNeighbor.getEndVertex())) {
+                    nextNeighbor.setWeight(weight);
+                    break;
+                }
+            }
         }
     }
 

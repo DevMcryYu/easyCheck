@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">easyCheck</string>
+    <string name="exchange">exchange</string>
+    <string name="exchangeRate">汇率:</string>
+    <string name="exchangeTips">点击此处修改汇率</string>
+    <string name="query">查询</string>
+    <string name="defaultNum">100</string>
+    <string name="update">update</string>
 </resources>

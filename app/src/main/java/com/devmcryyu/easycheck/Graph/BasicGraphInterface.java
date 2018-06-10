@@ -40,5 +40,7 @@ public interface BasicGraphInterface<T> {
 
     public void clear();                                                                            //删除图中所有的顶点与边
 
-    public Vertex<T> getVertex(T vertexLabel);                                                      //获得指定顶点
+    public VertexInterface<T> getVertex(T vertexLabel);                                             //获得指定顶点
+
+    public double getWeight(T begin, T end);                                                        //获得指定顶点间权值
 }
