@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_begin = findViewById(R.id.beginSpinner);
         spinner_begin.setAdapter(adapter);
-        spinner_begin.setSelection(4, true);
+        spinner_begin.setSelection(1, true);
         spinner_begin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
