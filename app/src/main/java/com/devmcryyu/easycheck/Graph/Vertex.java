@@ -108,12 +108,9 @@ public class Vertex<T> implements VertexInterface<T>, Serializable {
         @Override
         public Edge next() {
             Edge edge;
-            double result;
-            if (edgesIterator.hasNext()) {
+            if (edgesIterator.hasNext())
                 edge = edgesIterator.next();
-//                result = edge.getWeight();
-            } else throw new NoSuchElementException();
-//            return result;                                                                          //从迭代器中取得结果时,需要强制转换成Double
+            else throw new NoSuchElementException();
             return edge;
         }
 

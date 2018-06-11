@@ -21,7 +21,7 @@ import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "easyCheck";
-    public static final String GRAPH = "美元 人民币 欧元 英镑 土耳其新里拉 卢布";
+    public static final String GRAPH = "美元 人民币 欧元 英镑 土耳其新里拉";
     private Context mContext;
     private DirectedGraph<String> currencyGraph;
     private ImageButton btn_update, btn_exchange;
@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         mContext = this;
         initGraph();
         initView();
-
         //TEST
         Queue<String> queue = currencyGraph.getBreadthFirstTraversal("人民币");
         Log.i(TAG, "广度优先遍历(人民币)");
@@ -77,12 +76,9 @@ public class MainActivity extends AppCompatActivity {
         currencyGraph.addEdge(labelGroup[3], labelGroup[2], 1.138344);
         currencyGraph.addEdge(labelGroup[4], labelGroup[0], 0.217481);
         currencyGraph.addEdge(labelGroup[4], labelGroup[2], 0.185859);
-        currencyGraph.addEdge(labelGroup[4], labelGroup[5], 2.015484);
-        currencyGraph.addEdge(labelGroup[5], labelGroup[4], 1.015484);
     }
 
     private void initView() {
-        //TODO: init view
         final String[] items = GRAPH.split(" ");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -92,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
         spinner_begin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(MainActivity.this, items[position], Toast.LENGTH_SHORT).show();
                 double rate = getExchangeRate(items[spinner_begin.getSelectedItemPosition()], items[spinner_end.getSelectedItemPosition()]);
                 edit_exchangeRate.setText(String.valueOf(rate));
                 showResult();
@@ -109,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
         spinner_end.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(MainActivity.this, items[position], Toast.LENGTH_SHORT).show();
                 double rate = getExchangeRate(items[spinner_begin.getSelectedItemPosition()], items[spinner_end.getSelectedItemPosition()]);
                 edit_exchangeRate.setText(String.valueOf(rate));
                 showResult();

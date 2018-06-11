@@ -95,25 +95,7 @@ public class DirectedGraph<T> implements GraphInterface<T>, Serializable {
         return vertices.get(vertexLabel);
     }
 
-    @Override
-    public double getWeight(T begin, T end) {
-        double totalWright = 1;
-        //TODO:
-//        if(!hasEdge(begin,end))
-//            return -1;
-//        VertexInterface<T> beginVertex = vertices.get(begin);
-//        Log.i(LOG,beginVertex.getLabel().toString());
-//        VertexInterface<T> endVertex = vertices.get(end);
-//        Iterator weights=beginVertex.getWeightIterator();
-//        while (weights.hasNext()){
-//            double nextWeights=(double)weights.next();
-//            Log.i(LOG,nextWeights+"");
-//            totalWright*=nextWeights;
-//            if(beginVertex.equals(weights))
-//                break;
-//        }
-        return totalWright;
-    }
+
 
     @Override
     public Queue<T> getDepthFirstTraversal(T origin) {
@@ -245,7 +227,6 @@ public class DirectedGraph<T> implements GraphInterface<T>, Serializable {
 
     @Override
     public double getCheapestPath(T begin, T end, Stack<T> path) {
-        // TODO Auto-generated method stub
         return 0;
     }
 
