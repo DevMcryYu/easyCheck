@@ -21,7 +21,7 @@ import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "easyCheck";
-    public static final String GRAPH = "美元 人民币 欧元 英镑 土耳其新里拉";
+    public static final String GRAPH = "美元 人民币 欧元 英镑 土耳其新里拉 卢布";
     private Context mContext;
     private DirectedGraph<String> currencyGraph;
     private ImageButton btn_update, btn_exchange;
@@ -77,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
         currencyGraph.addEdge(labelGroup[3], labelGroup[2], 1.138344);
         currencyGraph.addEdge(labelGroup[4], labelGroup[0], 0.217481);
         currencyGraph.addEdge(labelGroup[4], labelGroup[2], 0.185859);
+        currencyGraph.addEdge(labelGroup[4], labelGroup[5], 2.015484);
+        currencyGraph.addEdge(labelGroup[5], labelGroup[4], 1.015484);
     }
 
     private void initView() {
